@@ -25,13 +25,26 @@ public class ExpChangeListener implements Listener {
         if (realmPlayer.XP >= getXpToNextLevel(realmPlayer.level)) {
             realmPlayer.XP -= getXpToNextLevel(realmPlayer.level);
             realmPlayer.level++;
+            onExpChange(event);
         }
         fourthRealmLevels.fourthRealmCore.setPlayerData(realmPlayer);
         Bukkit.getPluginManager().callEvent(new PlayerLevelUpEvent(realmPlayer, realmPlayer.level));
     }
 
     public static int getXpToNextLevel(int level) {
-        return 100 + (level * 25);
+        if (level < 10) return 100 + (level * 25);
+        if (level < 20) return 100 + (level * 30);
+        if (level < 30) return 100 + (level * 35);
+        if (level < 40) return 100 + (level * 40);
+        if (level < 50) return 100 + (level * 50);
+        if (level < 60) return 100 + (level * 60);
+        if (level < 70) return 100 + (level * 70);
+        if (level < 80) return 100 + (level * 80);
+        if (level < 90) return 100 + (level * 150);
+        if (level < 100) return 100 + (level * 250);
+        return 20000 + (level * 10000);
+
+
     }
 
 

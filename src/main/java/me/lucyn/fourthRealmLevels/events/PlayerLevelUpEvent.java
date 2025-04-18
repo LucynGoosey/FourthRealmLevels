@@ -19,10 +19,6 @@ public class PlayerLevelUpEvent extends Event {
     }
 
 
-    @Override
-    public HandlerList getHandlers() {
-        return handlers;
-    }
 
 
     public RealmPlayer getRealmPlayer() {
@@ -36,5 +32,14 @@ public class PlayerLevelUpEvent extends Event {
 
     public int getLevel() {
         return level;
+    }
+
+    @Override
+    public HandlerList getHandlers() {
+        return handlers;
+    }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
     }
 }
